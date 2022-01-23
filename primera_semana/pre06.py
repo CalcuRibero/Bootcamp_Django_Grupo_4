@@ -19,5 +19,3 @@ print(persona["nombre"])
 print(persona["nombre"][0])
 print(persona["nombre"][1])
 print(persona["nombre"][2])
-
-
