@@ -34,12 +34,12 @@ myNumMax([1, -2, 3, -40])
 # las operaciones, divisiones no pueden ser por cero
 
 def calculadora():
-    print("==================")
-    print("1: Suma\n 2: Resta\n 3: Multiplicacion\n 4: Division")
-    print("==================")
-    opcion = int(input("Ingrese su opcion: "))
-    while(True):    
-        if opcion not in range(1, 5):
+    while(True):  
+        print("==================")
+        print("1: Suma\n2: Resta\n3: Multiplicacion\n4: Division\n5: Resto\n6: Salir")
+        print("==================")  
+        opcion = int(input("Ingrese su opcion: "))
+        if opcion not in range(1, 7):
             print("Opcion invalida")
             continue
         a = int(input("Ingrese el primer valor"))
@@ -55,6 +55,13 @@ def calculadora():
                 print("Calculo Ilegal")
                 continue
             return (a/b)
+        if opcion == 5:
+            if b == 0:
+                print("Calculo Ilegal")
+                continue
+            return (a%b)
+        if opcion == 6:
+            break
 
 calculadora()
 
@@ -64,3 +71,32 @@ calculadora()
 # , obtener el elemento y la catidad de veces que se 
 # aparece
 
+def buscarYSeparar(cadena):
+    numeros = []
+    letras = []
+    for i in cadena:
+        if i in "0123456789":
+            numeros.append(i)
+            continue
+        letras.append(i)
+    letras.sort()
+    return(''.join(letras),''.join(numeros))
+    
+
+def rebanarNumeros(cadena):
+    mitad = len(cadena) // 2
+    primeraMitad = int(cadena[0:(mitad+1)])
+    segundaMitad = int(cadena[(mitad+1): len(cadena)])
+    return (primeraMitad + segundaMitad)
+    
+    
+
+letras, numeros = buscarYSeparar("dhwegwt2818he3d")
+
+resultado = rebanarNumeros(numeros)
+
+print(f"Letras: {letras}\nNumero: {resultado}")
+
+
+
+# %%
